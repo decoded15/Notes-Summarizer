@@ -72,7 +72,11 @@ if st.button("Summarize"):
 
             st.error(e)
 
+st.divider()
+
 st.subheader("Summary History")
+
+st.divider()
 
 for item in st.session_state.history:
 

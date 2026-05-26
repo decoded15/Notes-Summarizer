@@ -17,8 +17,24 @@ summary_type = st.selectbox(
 
 if st.button("Summarize"):
 
-    summary = summarize_notes(notes, summary_type)
+    if notes.strip() == "":
 
-    st.subheader("Summary")
+        st.warning("Please enter some notes.")
 
-    st.write(summary)
+    else:
+
+        try:
+
+            with st.spinner("Generating Summary..."):
+
+                summary = summarize_notes(notes, summary_type)
+
+            st.subheader("Summary")
+
+            st.write(summary)
+
+        except Exception:
+
+            st.error(
+                "Gemini API is currently overloaded or unavailable. Please try again in a few moments."
+            )

@@ -8,7 +8,21 @@ api_key = os.getenv("GEMINI_API_KEY")
 
 client = genai.Client(api_key=api_key)
 
+def clean_text(text):
+
+    text = text.replace("\n", " ")
+
+    text = text.replace("\t", " ")
+
+    text = " ".join(text.split())
+
+    return text
+
+
+
 def summarize_notes(notes, summary_type):
+    notes = clean_text(notes)
+    notes = notes[:5000]
     if summary_type == "Bullet Points":
 
         prompt = f"""

@@ -1,18 +1,14 @@
-from google import genai
-from dotenv import load_dotenv
-import os
+import streamlit as st
+from summarizer import summarize_notes
 
-load_dotenv()
+st.title("AI Notes Summarizer")
 
-api_key = os.getenv("GEMINI_API_KEY")
+notes = st.text_area("Paste your notes here")
 
-# print(api_key)
+if st.button("Summarize"):
 
-client = genai.Client(api_key=api_key)
+    summary = summarize_notes(notes)
 
-response = client.models.generate_content(
-    model="gemini-2.5-flash",
-    contents="Explain AI in one simple sentence"
-)
+    st.subheader("Summary")
 
-print(response.text)
+    st.write(summary)

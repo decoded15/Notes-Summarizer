@@ -20,5 +20,3 @@ def summarize_notes(notes):
     )
 
     return response.text
-
-summary = summarize_notes(notes)

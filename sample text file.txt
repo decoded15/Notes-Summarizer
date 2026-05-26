@@ -1,3 +1,0 @@
-Machine Learning allows systems to learn from data without explicit programming.
-Deep Learning uses neural networks with multiple layers.
-AI applications include chatbots, recommendation systems, and self-driving cars.

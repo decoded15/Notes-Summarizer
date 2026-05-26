@@ -2,6 +2,10 @@ import streamlit as st
 from summarizer import summarize_notes
 from pypdf import PdfReader
 
+if "history" not in st.session_state:
+
+    st.session_state.history = []
+
 st.title("AI Notes Summarizer")
 
 notes = st.text_area("Paste your notes here")
@@ -56,6 +60,7 @@ if st.button("Summarize"):
             st.subheader("Summary")
 
             st.write(summary)
+            st.session_state.history.append(summary)
             st.download_button(
             label="Download Summary",
             data=summary,
@@ -66,3 +71,11 @@ if st.button("Summarize"):
         except Exception as e:
 
             st.error(e)
+
+st.subheader("Summary History")
+
+for item in st.session_state.history:
+
+    st.write(item)
+
+    st.divider()

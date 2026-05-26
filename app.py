@@ -5,9 +5,19 @@ st.title("AI Notes Summarizer")
 
 notes = st.text_area("Paste your notes here")
 
+summary_type = st.selectbox(
+    "Choose Summary Type",
+    [
+        "Bullet Points",
+        "Short Summary",
+        "Detailed Summary",
+        "Beginner Friendly"
+    ]
+)
+
 if st.button("Summarize"):
 
-    summary = summarize_notes(notes)
+    summary = summarize_notes(notes, summary_type)
 
     st.subheader("Summary")
 

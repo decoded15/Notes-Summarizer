@@ -56,9 +56,13 @@ if st.button("Summarize"):
             st.subheader("Summary")
 
             st.write(summary)
+            st.download_button(
+            label="Download Summary",
+            data=summary,
+            file_name="summary.txt",
+            mime="text/plain"
+        )
 
-        except Exception:
+        except Exception as e:
 
-            st.error(
-                "Gemini API is currently overloaded or unavailable. Please try again in a few moments."
-            )
+            st.error(e)

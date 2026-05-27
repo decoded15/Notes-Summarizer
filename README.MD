@@ -48,8 +48,9 @@ AI-Notes-Summarizer/
 ├── app.py
 ├── summarizer.py
 ├── requirements.txt
-├── .env
+├── screenshots/
 ├── .gitignore
+├── README.md
 ````
 
 ---
